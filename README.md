@@ -12,7 +12,7 @@ Machine-facing SDK — no localized error messages. API failures throw `ApiExcep
 
 ## Add dependency
 
-From GitLab:
+From GitHub:
 
 ```json
 {
@@ -22,7 +22,7 @@ From GitLab:
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://git.zyneonstudios.com/elizon/api-client-php.git"
+      "url": "https://github.com/ATT-IT-Cloud-Services/api-client-php.git"
     }
   ]
 }
@@ -196,7 +196,7 @@ composer test
 
 ## Generate from OpenAPI
 
-GitLab does not publish a standalone PHP client. The canonical SDK lives in this monorepo and is regenerated from the public OpenAPI document.
+The standalone PHP client is published from this repository; its source is regenerated from the public OpenAPI document.
 
 From the repo root:
 

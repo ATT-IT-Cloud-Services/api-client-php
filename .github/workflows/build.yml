@@ -1,4 +1,4 @@
-# Standalone repo entry (elizonapp/api-client-php) — build & release.
+# Standalone repo entry (ATT-IT-Cloud-Services/api-client-php) — build & release.
 name: Build
 
 on:
