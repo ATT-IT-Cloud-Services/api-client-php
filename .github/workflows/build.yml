@@ -3,25 +3,90 @@ name: Build
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
   group: build-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   build:
-    uses: ./.github/workflows/reusable-build.yml
-    with:
-      project-dir: .
+    name: Build & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: json
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate composer.json
+        run: composer validate --strict --no-check-lock
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: PHPUnit
+        run: composer test
+
+      - name: Verify no localized runtime strings in src
+        run: |
+          if rg -n '"[^"]*(?:Bitte|Fehler| erfolgreich| nicht verfügbar)"' src/ 2>/dev/null; then
+            echo "Localized UI strings found in public API client src/" >&2
+            exit 1
+          fi
+          echo "OK — no obvious localized strings in src/"
 
   release:
+    name: Publish GitHub release
     needs: build
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-    uses: ./.github/workflows/reusable-github-release.yml
-    with:
-      project-dir: .
-    secrets: inherit
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve release metadata
+        id: meta
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          chmod +x scripts/resolve-app-version.sh
+          TAG=$(scripts/resolve-app-version.sh tag)
+          TITLE=$(scripts/resolve-app-version.sh title api-client-php)
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "title=${TITLE}" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare release files
+        run: |
+          chmod +x scripts/prepare-release-assets.sh
+          scripts/prepare-release-assets.sh "$PWD" "$GITHUB_WORKSPACE/release-upload"
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.title }}
+          generate_release_notes: true
+          make_latest: true
+          overwrite_files: true
+          fail_on_unmatched_files: false
+          body: |
+            Automated **api-client-php** build from [`${{ github.sha }}`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
+
+            ### Downloads
+
+            | File | Description |
+            |---|---|
+            | `ignite-api-php-*.zip` | Source package (`src/`, `composer.json`, examples) |
+          files: release-upload/*
