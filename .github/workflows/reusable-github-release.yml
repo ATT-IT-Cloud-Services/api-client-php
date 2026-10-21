@@ -1,0 +1,57 @@
+name: Reusable — GitHub release (api-client-php)
+
+on:
+  workflow_call:
+    inputs:
+      project-dir:
+        type: string
+        default: .
+
+jobs:
+  release:
+    name: Publish GitHub release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve release metadata
+        id: meta
+        working-directory: ${{ inputs.project-dir }}
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          chmod +x scripts/resolve-app-version.sh
+          TAG=$(scripts/resolve-app-version.sh tag)
+          TITLE=$(scripts/resolve-app-version.sh title api-client-php)
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "title=${TITLE}" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare release files
+        working-directory: ${{ inputs.project-dir }}
+        run: |
+          chmod +x scripts/prepare-release-assets.sh
+          scripts/prepare-release-assets.sh "$PWD" "$GITHUB_WORKSPACE/release-upload"
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.title }}
+          generate_release_notes: true
+          make_latest: true
+          overwrite_files: true
+          fail_on_unmatched_files: false
+          body: |
+            Automated **api-client-php** build from [`${{ github.sha }}`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
+
+            ### Downloads
+
+            | File | Description |
+            |---|---|
+            | `elizon-api-php-*.zip` | Source package (`src/`, `composer.json`, examples) |
+
+            Install via Composer path/VCS from this repository, or unpack the zip.
+          files: |
+            release-upload/*
