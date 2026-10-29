@@ -1,7 +1,6 @@
 {
   "name": "ignite/api-client",
   "description": "Official ignite API client",
-  "version": "0.2.0",
   "type": "library",
   "license": "proprietary",
   "require": {
