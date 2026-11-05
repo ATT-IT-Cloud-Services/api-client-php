@@ -1163,6 +1163,7 @@ final class ErrorCodes
     public const INVOICE_HAS_NO_LINKED_LEXWARE_DOCUMENT = 'invoiceHasNoLinkedLexwareDocument';
     public const INVOICE_NOT_FOUND = 'invoiceNotFound';
     public const INVOICE_NOT_FOUND2 = 'invoiceNotFound2';
+    public const INVOICE_PAYMENT_BLOCKED_FOR_ACCOUNT = 'invoicePaymentBlockedForAccount';
     public const INVOICE_WAS_NOT_PAID = 'invoiceWasNotPaid';
     public const INVOICE_WAS_VOIDED_AND_CANNOT_BE_PAID = 'invoiceWasVoidedAndCannotBePaid';
     public const INVOICING_PROVIDER_OPERATION_UNSUPPORTED = 'invoicingProviderOperationUnsupported';
