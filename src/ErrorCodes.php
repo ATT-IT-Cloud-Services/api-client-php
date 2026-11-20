@@ -62,6 +62,8 @@ final class ErrorCodes
     public const ADMIN_SCHEDULED_PERCENT_DISCOUNT_ADDITIONAL_MONTHS_AFTER_FIRST_DISCOUNTE = 'adminScheduledPercentDiscountAdditionalMonthsAfterFirstDiscounte';
     public const ADMIN_SCHEDULED_PERCENT_DISCOUNT_MUST_BE_AN_OBJECT_OR_NULL = 'adminScheduledPercentDiscountMustBeAnObjectOrNull';
     public const ADMIN_SCHEDULED_PERCENT_DISCOUNT_PERCENT_MUST_BE_BETWEEN0_AND100 = 'adminScheduledPercentDiscountPercentMustBeBetween0And100';
+    public const ADMIN_UPGRADE_EXCEEDS_CATEGORY_LIMIT = 'adminUpgradeExceedsCategoryLimit';
+    public const ADMIN_UPGRADE_MIXED_DIRECTION_NOT_ALLOWED = 'adminUpgradeMixedDirectionNotAllowed';
     public const ADMINS_CANNOT_BE_DELETED = 'adminsCannotBeDeleted';
     public const ADMINS_CANNOT_BE_DOWNGRADED_TO_A_LOWER_ROLE = 'adminsCannotBeDowngradedToALowerRole';
     public const ADMINS_CANNOT_BE_SUSPENDED_OR_STATUS_CHANGED = 'adminsCannotBeSuspendedOrStatusChanged';
@@ -272,6 +274,8 @@ final class ErrorCodes
     public const CART_EMPTY = 'cartEmpty';
     public const CASE_NOT_FOUND = 'caseNotFound';
     public const CASE_NUMBER_AND_REPORTER_EMAIL_ARE_REQUIRED = 'caseNumberAndReporterEmailAreRequired';
+    public const CASE_OBJECTION_ALREADY_FILED = 'caseObjectionAlreadyFiled';
+    public const CASE_OBJECTION_NOT_POSSIBLE = 'caseObjectionNotPossible';
     public const CATALOG_STOCK_EXHAUSTED = 'catalogStockExhausted';
     public const CATEGORY_AND_RATING_ARE_REQUIRED = 'categoryAndRatingAreRequired';
     public const CATEGORY_HAS_SUBCATEGORIES_REMOVE_OR_MOVE_THEM_FIRST = 'categoryHasSubcategoriesRemoveOrMoveThemFirst';
@@ -349,56 +353,142 @@ final class ErrorCodes
     public const CONSOLE_STREAMING_ONLY_SUPPORTED_FOR_PTERODACTYL_SERVICES = 'consoleStreamingOnlySupportedForPterodactylServices';
     public const CONSOLE_TEMPORARILY_UNAVAILABLE_PLEASE_TRY_AGAIN = 'consoleTemporarilyUnavailablePleaseTryAgain';
     public const CONTACTS_NOT_EDITABLE_IN_STATUS = 'contactsNotEditableInStatus';
+    public const CONTAINER_ALLOCATION_REQUIRED = 'containerAllocationRequired';
+    public const CONTAINER_API_KEY_NAME_REQUIRED = 'containerApiKeyNameRequired';
+    public const CONTAINER_API_KEY_REQUIRED = 'containerApiKeyRequired';
+    public const CONTAINER_API_KEY_SCOPES_REQUIRED = 'containerApiKeyScopesRequired';
+    public const CONTAINER_BACKEND_NAME_REQUIRED = 'containerBackendNameRequired';
+    public const CONTAINER_BACKUP_NOT_DOWNLOADABLE = 'containerBackupNotDownloadable';
+    public const CONTAINER_BACKUP_NOT_FOUND = 'containerBackupNotFound';
+    public const CONTAINER_BACKUP_KEEP_INVALID = 'containerBackupKeepInvalid';
+    public const CONTAINER_BACKUP_LIMIT_REACHED = 'containerBackupLimitReached';
+    public const CONTAINER_BACKUP_RETENTION_INVALID = 'containerBackupRetentionInvalid';
+    public const CONTAINER_BACKUP_TIMEZONE_INVALID = 'containerBackupTimezoneInvalid';
+    public const CONTAINER_BILLING_CYCLE_MISSING = 'containerBillingCycleMissing';
     public const CONTAINER_BILLING_MISSING = 'containerBillingMissing';
+    public const CONTAINER_BILLING_OWNER_MISSING = 'containerBillingOwnerMissing';
     public const CONTAINER_BILLING_REQUIRED = 'containerBillingRequired';
     public const CONTAINER_BUSINESS_ONLY = 'containerBusinessOnly';
-    public const CONTAINER_DOKPLOY_NOT_CONNECTED = 'containerDokployNotConnected';
-    public const CONTAINER_DOKPLOY_PROJECT_INCOMPLETE = 'containerDokployProjectIncomplete';
-    public const CONTAINER_DOKPLOY_REJECTED = 'containerDokployRejected';
-    public const CONTAINER_DOKPLOY_REQUEST_FAILED = 'containerDokployRequestFailed';
-    public const CONTAINER_DOKPLOY_RESOURCE_NOT_FOUND = 'containerDokployResourceNotFound';
-    public const CONTAINER_DOKPLOY_UNREACHABLE = 'containerDokployUnreachable';
-    public const CONTAINER_DOKPLOY_WORKLOAD_ID_MISSING = 'containerDokployWorkloadIdMissing';
+    public const CONTAINER_CERTIFICATE_INVALID = 'containerCertificateInvalid';
+    public const CONTAINER_CERTIFICATE_KEY_INVALID = 'containerCertificateKeyInvalid';
+    public const CONTAINER_COMPOSE_DISABLED = 'containerComposeDisabled';
+    public const CONTAINER_COMPOSE_YAML_REQUIRED = 'containerComposeYamlRequired';
+    public const CONTAINER_CONSOLE_COMMAND_FAILED = 'containerConsoleCommandFailed';
+    public const CONTAINER_CONSOLE_COMMAND_REQUIRED = 'containerConsoleCommandRequired';
+    public const CONTAINER_DATABASE_HOST_REQUIRED = 'containerDatabaseHostRequired';
+    public const CONTAINER_DATABASE_NAME_REQUIRED = 'containerDatabaseNameRequired';
+    public const CONTAINER_DATABASE_PORT_INVALID = 'containerDatabasePortInvalid';
+    public const CONTAINER_DOMAIN_NOT_FOUND = 'containerDomainNotFound';
+    public const CONTAINER_EMAIL_BODY_REQUIRED = 'containerEmailBodyRequired';
+    public const CONTAINER_EMAIL_ID_REQUIRED = 'containerEmailIdRequired';
+    public const CONTAINER_EMAIL_SUBJECT_REQUIRED = 'containerEmailSubjectRequired';
     public const CONTAINER_ENV_DUPLICATE_KEY = 'containerEnvDuplicateKey';
     public const CONTAINER_ENV_INVALID_KEY = 'containerEnvInvalidKey';
     public const CONTAINER_ENV_READ_FAILED = 'containerEnvReadFailed';
     public const CONTAINER_ENV_SAVE_FAILED = 'containerEnvSaveFailed';
     public const CONTAINER_ENV_UNSUPPORTED_KIND = 'containerEnvUnsupportedKind';
     public const CONTAINER_ENVIRONMENT_MISSING = 'containerEnvironmentMissing';
+    public const CONTAINER_EVENT_NOT_FOUND = 'containerEventNotFound';
     public const CONTAINER_FILE_DELETE_FAILED = 'containerFileDeleteFailed';
     public const CONTAINER_FILE_READ_FAILED = 'containerFileReadFailed';
     public const CONTAINER_FILE_WRITE_FAILED = 'containerFileWriteFailed';
     public const CONTAINER_FILES_READ_FAILED = 'containerFilesReadFailed';
     public const CONTAINER_FUND_MISSING = 'containerFundMissing';
+    public const CONTAINER_GATEWAY_TOKEN_LABEL_REQUIRED = 'containerGatewayTokenLabelRequired';
+    public const CONTAINER_GIT_CREDENTIAL_NAME_REQUIRED = 'containerGitCredentialNameRequired';
+    public const CONTAINER_GIT_REPO_REQUIRED = 'containerGitRepoRequired';
+    public const CONTAINER_GIT_SOURCE_NAME_REQUIRED = 'containerGitSourceNameRequired';
+    public const CONTAINER_GIT_TOKEN_REQUIRED = 'containerGitTokenRequired';
     public const CONTAINER_HOST_PORT_INVALID = 'containerHostPortInvalid';
     public const CONTAINER_HOST_PORT_TAKEN = 'containerHostPortTaken';
     public const CONTAINER_HOSTNAME_INVALID = 'containerHostnameInvalid';
     public const CONTAINER_HOSTNAME_REQUIRED = 'containerHostnameRequired';
+    public const CONTAINER_IMAGE_DIGEST_INVALID = 'containerImageDigestInvalid';
+    public const CONTAINER_IMAGE_REFERENCE_REQUIRED = 'containerImageReferenceRequired';
     public const CONTAINER_IMPORT_FAILED = 'containerImportFailed';
+    public const CONTAINER_INTERCONNECT_NEEDS_TWO_PODS = 'containerInterconnectNeedsTwoPods';
+    public const CONTAINER_INTERCONNECT_NOT_FOUND = 'containerInterconnectNotFound';
     public const CONTAINER_INVALID_PATH = 'containerInvalidPath';
     public const CONTAINER_INVOICE_NOT_ENABLED = 'containerInvoiceNotEnabled';
+    public const CONTAINER_IP_ADDRESS_INVALID = 'containerIpAddressInvalid';
+    public const CONTAINER_IP_ADDRESS_NOT_FOUND = 'containerIpAddressNotFound';
+    public const CONTAINER_IP_ADDRESS_REQUIRED = 'containerIpAddressRequired';
+    public const CONTAINER_IP_ADDRESS_TAKEN = 'containerIpAddressTaken';
+    public const CONTAINER_LISTENER_NAME_REQUIRED = 'containerListenerNameRequired';
+    public const CONTAINER_LISTENER_NODE_REQUIRED = 'containerListenerNodeRequired';
     public const CONTAINER_LOGS_DB_HINT = 'containerLogsDbHint';
     public const CONTAINER_LOGS_NO_COMPOSE_CONTAINER = 'containerLogsNoComposeContainer';
     public const CONTAINER_LOGS_READ_FAILED = 'containerLogsReadFailed';
     public const CONTAINER_LOGS_UNAVAILABLE = 'containerLogsUnavailable';
+    public const CONTAINER_METRICS_GRACE_CONFIRMATION_REQUIRED = 'containerMetricsGraceConfirmationRequired';
+    public const CONTAINER_METRICS_RETENTION_INVALID = 'containerMetricsRetentionInvalid';
     public const CONTAINER_NAME_REQUIRED = 'containerNameRequired';
+    public const CONTAINER_NETWORK_CIDR_INVALID = 'containerNetworkCidrInvalid';
     public const CONTAINER_NETWORK_NAME_REQUIRED = 'containerNetworkNameRequired';
+    public const CONTAINER_NETWORK_NOT_FOUND = 'containerNetworkNotFound';
     public const CONTAINER_NO_REACHABLE_WORKER = 'containerNoReachableWorker';
     public const CONTAINER_NO_WORKER_IN_REGION = 'containerNoWorkerInRegion';
     public const CONTAINER_NOT_RUNNING = 'containerNotRunning';
     public const CONTAINER_NOT_RUNNING_DEPLOY_FIRST = 'containerNotRunningDeployFirst';
     public const CONTAINER_OVERDUE_ACTION_BLOCKED = 'containerOverdueActionBlocked';
     public const CONTAINER_PATH_REQUIRED = 'containerPathRequired';
+    public const CONTAINER_PERMISSION_DENIED = 'containerPermissionDenied';
+    public const CONTAINER_PORT_FORWARD_NOT_FOUND = 'containerPortForwardNotFound';
+    public const CONTAINER_PORT_FORWARD_NOT_NEEDED_ON_FLOATING = 'containerPortForwardNotNeededOnFloating';
+    public const CONTAINER_PORT_NOT_FOUND = 'containerPortNotFound';
     public const CONTAINER_PROJECT_NAME_REQUIRED = 'containerProjectNameRequired';
     public const CONTAINER_PROJECT_NOT_FOUND = 'containerProjectNotFound';
+    public const CONTAINER_PROJECT_NOT_PROVISIONED = 'containerProjectNotProvisioned';
+    public const CONTAINER_RDNS_INVALID = 'containerRdnsInvalid';
+    public const CONTAINER_RDNS_NO_REVERSE_ZONE = 'containerRdnsNoReverseZone';
     public const CONTAINER_REGION_API_KEY_MISSING = 'containerRegionApiKeyMissing';
     public const CONTAINER_REGION_UNAVAILABLE = 'containerRegionUnavailable';
+    public const CONTAINER_REVISION_NOT_FOUND = 'containerRevisionNotFound';
+    public const CONTAINER_REVISION_PINNED = 'containerRevisionPinned';
+    public const CONTAINER_RUNTIME_GROUP_NAME_REQUIRED = 'containerRuntimeGroupNameRequired';
+    public const CONTAINER_RUNTIME_GROUP_SLUG_INVALID = 'containerRuntimeGroupSlugInvalid';
+    public const CONTAINER_SCHEDULE_ACTIONS_REQUIRED = 'containerScheduleActionsRequired';
+    public const CONTAINER_SCHEDULE_CRON_INVALID = 'containerScheduleCronInvalid';
+    public const CONTAINER_SCHEDULE_NAME_REQUIRED = 'containerScheduleNameRequired';
+    public const CONTAINER_SERVICE_NOT_ON_CONTROL_PLANE = 'containerServiceNotOnControlPlane';
+    public const CONTAINER_SERVICE_POD_MISSING = 'containerServicePodMissing';
+    public const CONTAINER_SSH_KEY_DUPLICATE = 'containerSshKeyDuplicate';
+    public const CONTAINER_SSH_KEY_GENERATE_FAILED = 'containerSshKeyGenerateFailed';
+    public const CONTAINER_SSH_KEY_INVALID = 'containerSshKeyInvalid';
+    public const CONTAINER_SSH_KEY_NAME_REQUIRED = 'containerSshKeyNameRequired';
+    public const CONTAINER_SSH_KEY_NOT_FOUND = 'containerSshKeyNotFound';
+    public const CONTAINER_SUB_TENANT_NESTING_FORBIDDEN = 'containerSubTenantNestingForbidden';
+    public const CONTAINER_TARGET_IP_REQUIRED = 'containerTargetIpRequired';
+    public const CONTAINER_TARGET_NODE_REQUIRED = 'containerTargetNodeRequired';
     public const CONTAINER_TARGET_PORT_INVALID = 'containerTargetPortInvalid';
+    public const CONTAINER_TEMPLATE_DEFINITION_REQUIRED = 'containerTemplateDefinitionRequired';
     public const CONTAINER_TEMPLATE_DEPLOY_FAILED = 'containerTemplateDeployFailed';
+    public const CONTAINER_TEMPLATE_FEED_SIGNATURE_REQUIRED = 'containerTemplateFeedSignatureRequired';
+    public const CONTAINER_TEMPLATE_NAME_REQUIRED = 'containerTemplateNameRequired';
+    public const CONTAINER_TEMPLATE_NOT_FOUND = 'containerTemplateNotFound';
+    public const CONTAINER_TEMPLATE_NOT_PUBLISHED = 'containerTemplateNotPublished';
+    public const CONTAINER_TEMPLATE_SCHEMA_INVALID = 'containerTemplateSchemaInvalid';
+    public const CONTAINER_TEMPLATE_VERSION_REQUIRED = 'containerTemplateVersionRequired';
+    public const CONTAINER_TEMPLATES_DISABLED = 'containerTemplatesDisabled';
     public const CONTAINER_TEMPLATES_LOAD_FAILED = 'containerTemplatesLoadFailed';
     public const CONTAINER_TENANT_CREATE_FAILED = 'containerTenantCreateFailed';
+    public const CONTAINER_TENANT_NAME_REQUIRED = 'containerTenantNameRequired';
+    public const CONTAINER_TENANT_NOT_ACCESSIBLE = 'containerTenantNotAccessible';
+    public const CONTAINER_TOKEN_AMOUNT_INVALID = 'containerTokenAmountInvalid';
+    public const CONTAINER_TOKEN_CREDIT_LIMIT_REACHED = 'containerTokenCreditLimitReached';
+    public const CONTAINER_TRANSFER_KEY_LABEL_REQUIRED = 'containerTransferKeyLabelRequired';
+    public const CONTAINER_TRANSFER_KEY_REQUIRED = 'containerTransferKeyRequired';
     public const CONTAINER_UNKNOWN_ACTION = 'containerUnknownAction';
     public const CONTAINER_UNKNOWN_FILE_ACTION = 'containerUnknownFileAction';
+    public const CONTAINER_USAGE_WINDOW_INVALID = 'containerUsageWindowInvalid';
+    public const CONTAINER_VOLUME_NAME_REQUIRED = 'containerVolumeNameRequired';
+    public const CONTAINER_VOLUME_NOT_FOUND = 'containerVolumeNotFound';
+    public const CONTAINER_VOLUME_SHRINK_FORBIDDEN = 'containerVolumeShrinkForbidden';
+    public const CONTAINER_VOLUME_SIZE_INVALID = 'containerVolumeSizeInvalid';
+    public const CONTAINER_WALLET_CREATE_FAILED = 'containerWalletCreateFailed';
+    public const CONTAINER_WALLET_MISSING = 'containerWalletMissing';
+    public const CONTAINER_WEBHOOK_DELIVERY_INVALID = 'containerWebhookDeliveryInvalid';
+    public const CONTAINER_WEBHOOK_URL_INVALID = 'containerWebhookUrlInvalid';
     public const CONTAINER_WORKLOAD_NOT_CONNECTED = 'containerWorkloadNotConnected';
     public const CONTAINER_WORKLOAD_NOT_FOUND = 'containerWorkloadNotFound';
     public const CONTAINER_WORKLOAD_NOT_IN_PROJECT = 'containerWorkloadNotInProject';
@@ -455,6 +545,10 @@ final class ErrorCodes
     public const CPU_CANNOT_BE_BELOW_PRODUCT_BASE_BASE_VCORES_V_CORES = 'cpuCannotBeBelowProductBaseBaseVcoresVCores';
     public const CPU_DOWNGRADE_NOT_ALLOWED_FOR_THIS_PRODUCT = 'cpuDowngradeNotAllowedForThisProduct';
     public const CPU_UPGRADE_DOWNGRADE_NOT_ALLOWED_FOR_THIS_PRODUCT = 'cpuUpgradeDowngradeNotAllowedForThisProduct';
+    public const CREDIT_CHECK_CONSENT_REQUIRED = 'creditCheckConsentRequired';
+    public const CREDIT_CHECK_DISABLED = 'creditCheckDisabled';
+    public const CREDIT_CHECK_FAILED = 'creditCheckFailed';
+    public const CREDIT_CHECK_NOT_CONFIGURED = 'creditCheckNotConfigured';
     public const CREDIT_LIMIT_EXCEEDED = 'creditLimitExceeded';
     public const CREDIT_NOTE_IS_NOT_IN_DRAFT_STATUS = 'creditNoteIsNotInDraftStatus';
     public const CREDIT_NOTE_NOT_FOUND = 'creditNoteNotFound';
@@ -957,6 +1051,25 @@ final class ErrorCodes
     public const IDENT_VERIFICATION_REQUIRED_FOR_FAMILY = 'identVerificationRequiredForFamily';
     public const IF_AN_ACCOUNT_WITH_THAT_EMAIL_EXISTS_WE_VE_SENT_A_PASSWORD_RESET_LINK = 'ifAnAccountWithThatEmailExistsWeVeSentAPasswordResetLink';
     public const IF_THE_EMAIL_EXISTS_A_CODE_HAS_BEEN_SENT = 'ifTheEmailExistsACodeHasBeenSent';
+    public const IGNITE_CONTAINERS_AGENT_UNAVAILABLE = 'igniteContainersAgentUnavailable';
+    public const IGNITE_CONTAINERS_BACKUP_RESTORE_STARTED = 'igniteContainersBackupRestoreStarted';
+    public const IGNITE_CONTAINERS_BACKUP_STARTED = 'igniteContainersBackupStarted';
+    public const IGNITE_CONTAINERS_CONFLICT = 'igniteContainersConflict';
+    public const IGNITE_CONTAINERS_LIMITS_APPLIED = 'igniteContainersLimitsApplied';
+    public const IGNITE_CONTAINERS_NO_CAPACITY = 'igniteContainersNoCapacity';
+    public const IGNITE_CONTAINERS_NODES_SYNCED = 'igniteContainersNodesSynced';
+    public const IGNITE_CONTAINERS_NOT_CONNECTED = 'igniteContainersNotConnected';
+    public const IGNITE_CONTAINERS_NOT_IMPLEMENTED = 'igniteContainersNotImplemented';
+    public const IGNITE_CONTAINERS_POD_MISSING = 'igniteContainersPodMissing';
+    public const IGNITE_CONTAINERS_RATE_LIMITED = 'igniteContainersRateLimited';
+    public const IGNITE_CONTAINERS_REINSTALL_STARTED = 'igniteContainersReinstallStarted';
+    public const IGNITE_CONTAINERS_REJECTED = 'igniteContainersRejected';
+    public const IGNITE_CONTAINERS_REQUEST_FAILED = 'igniteContainersRequestFailed';
+    public const IGNITE_CONTAINERS_RESOURCE_NOT_FOUND = 'igniteContainersResourceNotFound';
+    public const IGNITE_CONTAINERS_TEMPLATE_MISSING = 'igniteContainersTemplateMissing';
+    public const IGNITE_CONTAINERS_TIMEOUT = 'igniteContainersTimeout';
+    public const IGNITE_CONTAINERS_UNREACHABLE = 'igniteContainersUnreachable';
+    public const IGNITE_CONTAINERS_VALIDATION_FAILED = 'igniteContainersValidationFailed';
     public const IMAGE_NOT_AVAILABLE = 'imageNotAvailable';
     public const IMAGE_NOT_AVAILABLE2 = 'imageNotAvailable2';
     public const IMPORT_FAILED = 'importFailed';
@@ -1164,10 +1277,12 @@ final class ErrorCodes
     public const INVOICE_NOT_FOUND = 'invoiceNotFound';
     public const INVOICE_NOT_FOUND2 = 'invoiceNotFound2';
     public const INVOICE_PAYMENT_BLOCKED_FOR_ACCOUNT = 'invoicePaymentBlockedForAccount';
+    public const INVOICE_SETTLEMENT_FAILED = 'invoiceSettlementFailed';
     public const INVOICE_WAS_NOT_PAID = 'invoiceWasNotPaid';
     public const INVOICE_WAS_VOIDED_AND_CANNOT_BE_PAID = 'invoiceWasVoidedAndCannotBePaid';
     public const INVOICING_PROVIDER_OPERATION_UNSUPPORTED = 'invoicingProviderOperationUnsupported';
     public const IP_ADDRESS_REQUIRED = 'ipAddressRequired';
+    public const IP_ALLOCATION_FAILED = 'ipAllocationFailed';
     public const IP_CANCEL_ALREADY_SCHEDULED = 'ipCancelAlreadyScheduled';
     public const IP_CANCEL_NO_SUBSCRIPTION = 'ipCancelNoSubscription';
     public const IP_CANCEL_NOT_ALLOWED = 'ipCancelNotAllowed';
@@ -1184,11 +1299,13 @@ final class ErrorCodes
     public const IP_DNS_RECORD_NOT_FOUND = 'ipDnsRecordNotFound';
     public const IP_FLOW_METRICS_INVALID_IPV4 = 'ipFlowMetricsInvalidIpv4';
     public const IP_FLOW_METRICS_INVALID_OCTET = 'ipFlowMetricsInvalidOctet';
+    public const IP_VERSION_OR_RESERVATION_ID_IS_REQUIRED = 'ipVersionOrReservationIdIsRequired';
     public const IPAM_INVALID_IPV4_BASE_ADDRESS = 'ipamInvalidIpv4BaseAddress';
     public const IPAM_INVALID_IPV4_CIDR = 'ipamInvalidIpv4Cidr';
     public const IPAM_INVALID_IPV6_BASE_ADDRESS = 'ipamInvalidIpv6BaseAddress';
     public const IPAM_INVALID_IPV6_CIDR = 'ipamInvalidIpv6Cidr';
     public const IPAM_IPV4_ASSIGNMENT_FAILED = 'ipamIpv4AssignmentFailed';
+    public const IPAM_IPV4_RANGE_OVERLAPS_EXISTING = 'ipamIpv4RangeOverlapsExisting';
     public const IPAM_IPV6_SUBNET_CALCULATION_FAILED = 'ipamIpv6SubnetCalculationFailed';
     public const IPAM_NO_FREE_IPV4_IN_TARGET_RANGE = 'ipamNoFreeIpv4InTargetRange';
     public const IPAM_NO_FREE_IPV6_SUBNET = 'ipamNoFreeIpv6Subnet';
@@ -1334,6 +1451,7 @@ final class ErrorCodes
     public const MONITORING_PLUS_REQUIRED = 'monitoringPlusRequired';
     public const MONITORING_TARGET_ALREADY_EXISTS = 'monitoringTargetAlreadyExists';
     public const MONITORING_TARGET_NOT_FOUND = 'monitoringTargetNotFound';
+    public const MONTHLY_CHARGE_MUST_BE_A_NON_NEGATIVE_NUMBER = 'monthlyChargeMustBeANonNegativeNumber';
     public const MONTHLY_OFFERS_CONFIG_INVALID = 'monthlyOffersConfigInvalid';
     public const MONTHLY_PRICE_MUST_BE_A_NON_NEGATIVE_NUMBER = 'monthlyPriceMustBeANonNegativeNumber';
     public const NAME_ADDRESS_AUTOMATED_CHECK_DECLINED = 'nameAddressAutomatedCheckDeclined';
@@ -1465,6 +1583,7 @@ final class ErrorCodes
     public const OAUTH_LINK_FAILED = 'oauthLinkFailed';
     public const OAUTH_PROVIDER_NOT_FOUND = 'oauthProviderNotFound';
     public const OAUTH_PROVIDER_NOT_FOUND_OR_DISABLED = 'oauthProviderNotFoundOrDisabled';
+    public const OBJECTION_TEXT_TOO_SHORT = 'objectionTextTooShort';
     public const OFFER_ALREADY_ACCEPTED = 'offerAlreadyAccepted';
     public const OFFER_ALREADY_REJECTED = 'offerAlreadyRejected';
     public const OFFER_HAS_EXPIRED = 'offerHasExpired';
@@ -1759,6 +1878,8 @@ final class ErrorCodes
     public const REINSTALLATION_IS_ALREADY_IN_PROGRESS_PLEASE_WAIT_UNTIL_THE_CURRENT_OPERATION_C = 'reinstallationIsAlreadyInProgressPleaseWaitUntilTheCurrentOperationC';
     public const REINSTALLATION_IS_ALREADY_IN_PROGRESS_PLEASE_WAIT_UNTIL_THE_CURRENT_OPERATION_C2 = 'reinstallationIsAlreadyInProgressPleaseWaitUntilTheCurrentOperationC2';
     public const REJECTION_REASON_IS_REQUIRED = 'rejectionReasonIsRequired';
+    public const REJECTION_REASON_REQUIRED = 'rejectionReasonRequired';
+    public const REJECTION_REASON_TOO_SHORT = 'rejectionReasonTooShort';
     public const REMOVE_AT_MUST_BE_A_VALID_DATE_IN_THE_FUTURE = 'removeAtMustBeAValidDateInTheFuture';
     public const REMOVE_AT_MUST_BE_A_VALID_DATE_IN_THE_FUTURE2 = 'removeAtMustBeAValidDateInTheFuture2';
     public const RENEWAL_BLOCKED_DUE_TO_ADOPTION_DEADLINE_ENFORCEMENT = 'renewalBlockedDueToAdoptionDeadlineEnforcement';
@@ -2188,6 +2309,7 @@ final class ErrorCodes
     public const UPGRADE_MAX_I_PV6_EXCEEDED = 'upgradeMaxIPv6Exceeded';
     public const UPGRADE_MAX_IPS_EXCEEDED = 'upgradeMaxIpsExceeded';
     public const UPGRADE_NO_CHANGES_APPLICABLE = 'upgradeNoChangesApplicable';
+    public const UPGRADE_NO_SUBSCRIPTION = 'upgradeNoSubscription';
     public const UPGRADE_NOT_ALLOWED = 'upgradeNotAllowed';
     public const UPGRADE_OPTIONS_ARE_ONLY_AVAILABLE_TO_THE_SERVICE_OWNER = 'upgradeOptionsAreOnlyAvailableToTheServiceOwner';
     public const UPGRADE_REQUIRES_CHECKOUT = 'upgradeRequiresCheckout';
@@ -2353,6 +2475,8 @@ final class ErrorCodes
             self::ADMIN_SCHEDULED_PERCENT_DISCOUNT_ADDITIONAL_MONTHS_AFTER_FIRST_DISCOUNTE,
             self::ADMIN_SCHEDULED_PERCENT_DISCOUNT_MUST_BE_AN_OBJECT_OR_NULL,
             self::ADMIN_SCHEDULED_PERCENT_DISCOUNT_PERCENT_MUST_BE_BETWEEN0_AND100,
+            self::ADMIN_UPGRADE_EXCEEDS_CATEGORY_LIMIT,
+            self::ADMIN_UPGRADE_MIXED_DIRECTION_NOT_ALLOWED,
             self::ADMINS_CANNOT_BE_DELETED,
             self::ADMINS_CANNOT_BE_DOWNGRADED_TO_A_LOWER_ROLE,
             self::ADMINS_CANNOT_BE_SUSPENDED_OR_STATUS_CHANGED,
@@ -2563,6 +2687,8 @@ final class ErrorCodes
             self::CART_EMPTY,
             self::CASE_NOT_FOUND,
             self::CASE_NUMBER_AND_REPORTER_EMAIL_ARE_REQUIRED,
+            self::CASE_OBJECTION_ALREADY_FILED,
+            self::CASE_OBJECTION_NOT_POSSIBLE,
             self::CATALOG_STOCK_EXHAUSTED,
             self::CATEGORY_AND_RATING_ARE_REQUIRED,
             self::CATEGORY_HAS_SUBCATEGORIES_REMOVE_OR_MOVE_THEM_FIRST,
@@ -2640,56 +2766,142 @@ final class ErrorCodes
             self::CONSOLE_STREAMING_ONLY_SUPPORTED_FOR_PTERODACTYL_SERVICES,
             self::CONSOLE_TEMPORARILY_UNAVAILABLE_PLEASE_TRY_AGAIN,
             self::CONTACTS_NOT_EDITABLE_IN_STATUS,
+            self::CONTAINER_ALLOCATION_REQUIRED,
+            self::CONTAINER_API_KEY_NAME_REQUIRED,
+            self::CONTAINER_API_KEY_REQUIRED,
+            self::CONTAINER_API_KEY_SCOPES_REQUIRED,
+            self::CONTAINER_BACKEND_NAME_REQUIRED,
+            self::CONTAINER_BACKUP_NOT_DOWNLOADABLE,
+            self::CONTAINER_BACKUP_NOT_FOUND,
+            self::CONTAINER_BACKUP_KEEP_INVALID,
+            self::CONTAINER_BACKUP_LIMIT_REACHED,
+            self::CONTAINER_BACKUP_RETENTION_INVALID,
+            self::CONTAINER_BACKUP_TIMEZONE_INVALID,
+            self::CONTAINER_BILLING_CYCLE_MISSING,
             self::CONTAINER_BILLING_MISSING,
+            self::CONTAINER_BILLING_OWNER_MISSING,
             self::CONTAINER_BILLING_REQUIRED,
             self::CONTAINER_BUSINESS_ONLY,
-            self::CONTAINER_DOKPLOY_NOT_CONNECTED,
-            self::CONTAINER_DOKPLOY_PROJECT_INCOMPLETE,
-            self::CONTAINER_DOKPLOY_REJECTED,
-            self::CONTAINER_DOKPLOY_REQUEST_FAILED,
-            self::CONTAINER_DOKPLOY_RESOURCE_NOT_FOUND,
-            self::CONTAINER_DOKPLOY_UNREACHABLE,
-            self::CONTAINER_DOKPLOY_WORKLOAD_ID_MISSING,
+            self::CONTAINER_CERTIFICATE_INVALID,
+            self::CONTAINER_CERTIFICATE_KEY_INVALID,
+            self::CONTAINER_COMPOSE_DISABLED,
+            self::CONTAINER_COMPOSE_YAML_REQUIRED,
+            self::CONTAINER_CONSOLE_COMMAND_FAILED,
+            self::CONTAINER_CONSOLE_COMMAND_REQUIRED,
+            self::CONTAINER_DATABASE_HOST_REQUIRED,
+            self::CONTAINER_DATABASE_NAME_REQUIRED,
+            self::CONTAINER_DATABASE_PORT_INVALID,
+            self::CONTAINER_DOMAIN_NOT_FOUND,
+            self::CONTAINER_EMAIL_BODY_REQUIRED,
+            self::CONTAINER_EMAIL_ID_REQUIRED,
+            self::CONTAINER_EMAIL_SUBJECT_REQUIRED,
             self::CONTAINER_ENV_DUPLICATE_KEY,
             self::CONTAINER_ENV_INVALID_KEY,
             self::CONTAINER_ENV_READ_FAILED,
             self::CONTAINER_ENV_SAVE_FAILED,
             self::CONTAINER_ENV_UNSUPPORTED_KIND,
             self::CONTAINER_ENVIRONMENT_MISSING,
+            self::CONTAINER_EVENT_NOT_FOUND,
             self::CONTAINER_FILE_DELETE_FAILED,
             self::CONTAINER_FILE_READ_FAILED,
             self::CONTAINER_FILE_WRITE_FAILED,
             self::CONTAINER_FILES_READ_FAILED,
             self::CONTAINER_FUND_MISSING,
+            self::CONTAINER_GATEWAY_TOKEN_LABEL_REQUIRED,
+            self::CONTAINER_GIT_CREDENTIAL_NAME_REQUIRED,
+            self::CONTAINER_GIT_REPO_REQUIRED,
+            self::CONTAINER_GIT_SOURCE_NAME_REQUIRED,
+            self::CONTAINER_GIT_TOKEN_REQUIRED,
             self::CONTAINER_HOST_PORT_INVALID,
             self::CONTAINER_HOST_PORT_TAKEN,
             self::CONTAINER_HOSTNAME_INVALID,
             self::CONTAINER_HOSTNAME_REQUIRED,
+            self::CONTAINER_IMAGE_DIGEST_INVALID,
+            self::CONTAINER_IMAGE_REFERENCE_REQUIRED,
             self::CONTAINER_IMPORT_FAILED,
+            self::CONTAINER_INTERCONNECT_NEEDS_TWO_PODS,
+            self::CONTAINER_INTERCONNECT_NOT_FOUND,
             self::CONTAINER_INVALID_PATH,
             self::CONTAINER_INVOICE_NOT_ENABLED,
+            self::CONTAINER_IP_ADDRESS_INVALID,
+            self::CONTAINER_IP_ADDRESS_NOT_FOUND,
+            self::CONTAINER_IP_ADDRESS_REQUIRED,
+            self::CONTAINER_IP_ADDRESS_TAKEN,
+            self::CONTAINER_LISTENER_NAME_REQUIRED,
+            self::CONTAINER_LISTENER_NODE_REQUIRED,
             self::CONTAINER_LOGS_DB_HINT,
             self::CONTAINER_LOGS_NO_COMPOSE_CONTAINER,
             self::CONTAINER_LOGS_READ_FAILED,
             self::CONTAINER_LOGS_UNAVAILABLE,
+            self::CONTAINER_METRICS_GRACE_CONFIRMATION_REQUIRED,
+            self::CONTAINER_METRICS_RETENTION_INVALID,
             self::CONTAINER_NAME_REQUIRED,
+            self::CONTAINER_NETWORK_CIDR_INVALID,
             self::CONTAINER_NETWORK_NAME_REQUIRED,
+            self::CONTAINER_NETWORK_NOT_FOUND,
             self::CONTAINER_NO_REACHABLE_WORKER,
             self::CONTAINER_NO_WORKER_IN_REGION,
             self::CONTAINER_NOT_RUNNING,
             self::CONTAINER_NOT_RUNNING_DEPLOY_FIRST,
             self::CONTAINER_OVERDUE_ACTION_BLOCKED,
             self::CONTAINER_PATH_REQUIRED,
+            self::CONTAINER_PERMISSION_DENIED,
+            self::CONTAINER_PORT_FORWARD_NOT_FOUND,
+            self::CONTAINER_PORT_FORWARD_NOT_NEEDED_ON_FLOATING,
+            self::CONTAINER_PORT_NOT_FOUND,
             self::CONTAINER_PROJECT_NAME_REQUIRED,
             self::CONTAINER_PROJECT_NOT_FOUND,
+            self::CONTAINER_PROJECT_NOT_PROVISIONED,
+            self::CONTAINER_RDNS_INVALID,
+            self::CONTAINER_RDNS_NO_REVERSE_ZONE,
             self::CONTAINER_REGION_API_KEY_MISSING,
             self::CONTAINER_REGION_UNAVAILABLE,
+            self::CONTAINER_REVISION_NOT_FOUND,
+            self::CONTAINER_REVISION_PINNED,
+            self::CONTAINER_RUNTIME_GROUP_NAME_REQUIRED,
+            self::CONTAINER_RUNTIME_GROUP_SLUG_INVALID,
+            self::CONTAINER_SCHEDULE_ACTIONS_REQUIRED,
+            self::CONTAINER_SCHEDULE_CRON_INVALID,
+            self::CONTAINER_SCHEDULE_NAME_REQUIRED,
+            self::CONTAINER_SERVICE_NOT_ON_CONTROL_PLANE,
+            self::CONTAINER_SERVICE_POD_MISSING,
+            self::CONTAINER_SSH_KEY_DUPLICATE,
+            self::CONTAINER_SSH_KEY_GENERATE_FAILED,
+            self::CONTAINER_SSH_KEY_INVALID,
+            self::CONTAINER_SSH_KEY_NAME_REQUIRED,
+            self::CONTAINER_SSH_KEY_NOT_FOUND,
+            self::CONTAINER_SUB_TENANT_NESTING_FORBIDDEN,
+            self::CONTAINER_TARGET_IP_REQUIRED,
+            self::CONTAINER_TARGET_NODE_REQUIRED,
             self::CONTAINER_TARGET_PORT_INVALID,
+            self::CONTAINER_TEMPLATE_DEFINITION_REQUIRED,
             self::CONTAINER_TEMPLATE_DEPLOY_FAILED,
+            self::CONTAINER_TEMPLATE_FEED_SIGNATURE_REQUIRED,
+            self::CONTAINER_TEMPLATE_NAME_REQUIRED,
+            self::CONTAINER_TEMPLATE_NOT_FOUND,
+            self::CONTAINER_TEMPLATE_NOT_PUBLISHED,
+            self::CONTAINER_TEMPLATE_SCHEMA_INVALID,
+            self::CONTAINER_TEMPLATE_VERSION_REQUIRED,
+            self::CONTAINER_TEMPLATES_DISABLED,
             self::CONTAINER_TEMPLATES_LOAD_FAILED,
             self::CONTAINER_TENANT_CREATE_FAILED,
+            self::CONTAINER_TENANT_NAME_REQUIRED,
+            self::CONTAINER_TENANT_NOT_ACCESSIBLE,
+            self::CONTAINER_TOKEN_AMOUNT_INVALID,
+            self::CONTAINER_TOKEN_CREDIT_LIMIT_REACHED,
+            self::CONTAINER_TRANSFER_KEY_LABEL_REQUIRED,
+            self::CONTAINER_TRANSFER_KEY_REQUIRED,
             self::CONTAINER_UNKNOWN_ACTION,
             self::CONTAINER_UNKNOWN_FILE_ACTION,
+            self::CONTAINER_USAGE_WINDOW_INVALID,
+            self::CONTAINER_VOLUME_NAME_REQUIRED,
+            self::CONTAINER_VOLUME_NOT_FOUND,
+            self::CONTAINER_VOLUME_SHRINK_FORBIDDEN,
+            self::CONTAINER_VOLUME_SIZE_INVALID,
+            self::CONTAINER_WALLET_CREATE_FAILED,
+            self::CONTAINER_WALLET_MISSING,
+            self::CONTAINER_WEBHOOK_DELIVERY_INVALID,
+            self::CONTAINER_WEBHOOK_URL_INVALID,
             self::CONTAINER_WORKLOAD_NOT_CONNECTED,
             self::CONTAINER_WORKLOAD_NOT_FOUND,
             self::CONTAINER_WORKLOAD_NOT_IN_PROJECT,
@@ -2746,6 +2958,10 @@ final class ErrorCodes
             self::CPU_CANNOT_BE_BELOW_PRODUCT_BASE_BASE_VCORES_V_CORES,
             self::CPU_DOWNGRADE_NOT_ALLOWED_FOR_THIS_PRODUCT,
             self::CPU_UPGRADE_DOWNGRADE_NOT_ALLOWED_FOR_THIS_PRODUCT,
+            self::CREDIT_CHECK_CONSENT_REQUIRED,
+            self::CREDIT_CHECK_DISABLED,
+            self::CREDIT_CHECK_FAILED,
+            self::CREDIT_CHECK_NOT_CONFIGURED,
             self::CREDIT_LIMIT_EXCEEDED,
             self::CREDIT_NOTE_IS_NOT_IN_DRAFT_STATUS,
             self::CREDIT_NOTE_NOT_FOUND,
@@ -3248,6 +3464,25 @@ final class ErrorCodes
             self::IDENT_VERIFICATION_REQUIRED_FOR_FAMILY,
             self::IF_AN_ACCOUNT_WITH_THAT_EMAIL_EXISTS_WE_VE_SENT_A_PASSWORD_RESET_LINK,
             self::IF_THE_EMAIL_EXISTS_A_CODE_HAS_BEEN_SENT,
+            self::IGNITE_CONTAINERS_AGENT_UNAVAILABLE,
+            self::IGNITE_CONTAINERS_BACKUP_RESTORE_STARTED,
+            self::IGNITE_CONTAINERS_BACKUP_STARTED,
+            self::IGNITE_CONTAINERS_CONFLICT,
+            self::IGNITE_CONTAINERS_LIMITS_APPLIED,
+            self::IGNITE_CONTAINERS_NO_CAPACITY,
+            self::IGNITE_CONTAINERS_NODES_SYNCED,
+            self::IGNITE_CONTAINERS_NOT_CONNECTED,
+            self::IGNITE_CONTAINERS_NOT_IMPLEMENTED,
+            self::IGNITE_CONTAINERS_POD_MISSING,
+            self::IGNITE_CONTAINERS_RATE_LIMITED,
+            self::IGNITE_CONTAINERS_REINSTALL_STARTED,
+            self::IGNITE_CONTAINERS_REJECTED,
+            self::IGNITE_CONTAINERS_REQUEST_FAILED,
+            self::IGNITE_CONTAINERS_RESOURCE_NOT_FOUND,
+            self::IGNITE_CONTAINERS_TEMPLATE_MISSING,
+            self::IGNITE_CONTAINERS_TIMEOUT,
+            self::IGNITE_CONTAINERS_UNREACHABLE,
+            self::IGNITE_CONTAINERS_VALIDATION_FAILED,
             self::IMAGE_NOT_AVAILABLE,
             self::IMAGE_NOT_AVAILABLE2,
             self::IMPORT_FAILED,
@@ -3454,10 +3689,13 @@ final class ErrorCodes
             self::INVOICE_HAS_NO_LINKED_LEXWARE_DOCUMENT,
             self::INVOICE_NOT_FOUND,
             self::INVOICE_NOT_FOUND2,
+            self::INVOICE_PAYMENT_BLOCKED_FOR_ACCOUNT,
+            self::INVOICE_SETTLEMENT_FAILED,
             self::INVOICE_WAS_NOT_PAID,
             self::INVOICE_WAS_VOIDED_AND_CANNOT_BE_PAID,
             self::INVOICING_PROVIDER_OPERATION_UNSUPPORTED,
             self::IP_ADDRESS_REQUIRED,
+            self::IP_ALLOCATION_FAILED,
             self::IP_CANCEL_ALREADY_SCHEDULED,
             self::IP_CANCEL_NO_SUBSCRIPTION,
             self::IP_CANCEL_NOT_ALLOWED,
@@ -3474,11 +3712,13 @@ final class ErrorCodes
             self::IP_DNS_RECORD_NOT_FOUND,
             self::IP_FLOW_METRICS_INVALID_IPV4,
             self::IP_FLOW_METRICS_INVALID_OCTET,
+            self::IP_VERSION_OR_RESERVATION_ID_IS_REQUIRED,
             self::IPAM_INVALID_IPV4_BASE_ADDRESS,
             self::IPAM_INVALID_IPV4_CIDR,
             self::IPAM_INVALID_IPV6_BASE_ADDRESS,
             self::IPAM_INVALID_IPV6_CIDR,
             self::IPAM_IPV4_ASSIGNMENT_FAILED,
+            self::IPAM_IPV4_RANGE_OVERLAPS_EXISTING,
             self::IPAM_IPV6_SUBNET_CALCULATION_FAILED,
             self::IPAM_NO_FREE_IPV4_IN_TARGET_RANGE,
             self::IPAM_NO_FREE_IPV6_SUBNET,
@@ -3624,6 +3864,7 @@ final class ErrorCodes
             self::MONITORING_PLUS_REQUIRED,
             self::MONITORING_TARGET_ALREADY_EXISTS,
             self::MONITORING_TARGET_NOT_FOUND,
+            self::MONTHLY_CHARGE_MUST_BE_A_NON_NEGATIVE_NUMBER,
             self::MONTHLY_OFFERS_CONFIG_INVALID,
             self::MONTHLY_PRICE_MUST_BE_A_NON_NEGATIVE_NUMBER,
             self::NAME_ADDRESS_AUTOMATED_CHECK_DECLINED,
@@ -3755,6 +3996,7 @@ final class ErrorCodes
             self::OAUTH_LINK_FAILED,
             self::OAUTH_PROVIDER_NOT_FOUND,
             self::OAUTH_PROVIDER_NOT_FOUND_OR_DISABLED,
+            self::OBJECTION_TEXT_TOO_SHORT,
             self::OFFER_ALREADY_ACCEPTED,
             self::OFFER_ALREADY_REJECTED,
             self::OFFER_HAS_EXPIRED,
@@ -4049,6 +4291,8 @@ final class ErrorCodes
             self::REINSTALLATION_IS_ALREADY_IN_PROGRESS_PLEASE_WAIT_UNTIL_THE_CURRENT_OPERATION_C,
             self::REINSTALLATION_IS_ALREADY_IN_PROGRESS_PLEASE_WAIT_UNTIL_THE_CURRENT_OPERATION_C2,
             self::REJECTION_REASON_IS_REQUIRED,
+            self::REJECTION_REASON_REQUIRED,
+            self::REJECTION_REASON_TOO_SHORT,
             self::REMOVE_AT_MUST_BE_A_VALID_DATE_IN_THE_FUTURE,
             self::REMOVE_AT_MUST_BE_A_VALID_DATE_IN_THE_FUTURE2,
             self::RENEWAL_BLOCKED_DUE_TO_ADOPTION_DEADLINE_ENFORCEMENT,
@@ -4478,6 +4722,7 @@ final class ErrorCodes
             self::UPGRADE_MAX_I_PV6_EXCEEDED,
             self::UPGRADE_MAX_IPS_EXCEEDED,
             self::UPGRADE_NO_CHANGES_APPLICABLE,
+            self::UPGRADE_NO_SUBSCRIPTION,
             self::UPGRADE_NOT_ALLOWED,
             self::UPGRADE_OPTIONS_ARE_ONLY_AVAILABLE_TO_THE_SERVICE_OWNER,
             self::UPGRADE_REQUIRES_CHECKOUT,

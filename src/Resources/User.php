@@ -8,8 +8,10 @@ use Ignite\ApiClient\Models\ApiKeysListResponse;
 use Ignite\ApiClient\Models\AuditLogResponse;
 use Ignite\ApiClient\Models\CreateApiKeyRequest;
 use Ignite\ApiClient\Models\CreateApiKeyResponse;
+use Ignite\ApiClient\Models\CreateMcpCredentialResponse;
 use Ignite\ApiClient\Models\GdprExportCheckResponse;
 use Ignite\ApiClient\Models\GdprExportConfirmRequest;
+use Ignite\ApiClient\Models\McpCredentialsListResponse;
 use Ignite\ApiClient\Models\SuccessResponse;
 use Ignite\ApiClient\Models\SupportPinResponse;
 
@@ -53,6 +55,31 @@ final class User extends ResourceClient
     public function revoke_api_key(string $id): SuccessResponse
     {
         return SuccessResponse::fromArray($this->requestDelete('/api-keys', ['id' => $id]));
+    }
+
+    public function mcp_credentials(int $page, int $pageSize): McpCredentialsListResponse
+    {
+        return McpCredentialsListResponse::fromArray(
+            $this->requestGet('/mcp-credentials', ['page' => $page, 'pageSize' => $pageSize]),
+        );
+    }
+
+    /** @param list<string> $scopes */
+    public function create_mcp_credential(string $name, array $scopes = ['read'], ?int $expiresInDays = null): CreateMcpCredentialResponse
+    {
+        $payload = ['name' => $name, 'scopes' => $scopes];
+        if ($expiresInDays !== null) {
+            $payload['expiresInDays'] = $expiresInDays;
+        }
+
+        return CreateMcpCredentialResponse::fromArray(
+            $this->requestPost('/mcp-credentials', $payload),
+        );
+    }
+
+    public function revoke_mcp_credential(string $id): SuccessResponse
+    {
+        return SuccessResponse::fromArray($this->requestDelete('/mcp-credentials', ['id' => $id]));
     }
 
     public function support_pin(): SupportPinResponse

@@ -339,6 +339,16 @@ final class Services extends ResourceClient
     }
 
     /**
+     * @generated GET /services/[id]/console/logs
+     * @param array<string, scalar|null>|null $query
+     * @return array<string, mixed>
+     */
+    public function console_logs(string $id, ?array $query = null): array
+    {
+        return parent::requestGet('/services/' . self::encode($id) . '/console/logs', $query);
+    }
+
+    /**
      * @generated GET /services/[id]/console/stream
      * @param array<string, scalar|null>|null $query
      * @return array<string, mixed>
@@ -346,6 +356,16 @@ final class Services extends ResourceClient
     public function console_stream(string $id, ?array $query = null): array
     {
         return parent::requestGet('/services/' . self::encode($id) . '/console/stream', $query);
+    }
+
+    /**
+     * @generated GET /services/[id]/content/facets
+     * @param array<string, scalar|null>|null $query
+     * @return array<string, mixed>
+     */
+    public function content_facets(string $id, ?array $query = null): array
+    {
+        return parent::requestGet('/services/' . self::encode($id) . '/content/facets', $query);
     }
 
     /**

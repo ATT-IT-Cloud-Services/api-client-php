@@ -298,3 +298,167 @@ readonly class CreateApiKeyResponse extends Model
         ];
     }
 }
+
+readonly class McpCredential extends Model
+{
+    /** @param list<string> $scopes @param list<array<string, mixed>> $requestingIps */
+    public function __construct(
+        public string $id,
+        public string $name,
+        public string $tokenPrefix,
+        public array $scopes,
+        public string $createdAt,
+        public ?string $lastUsedAt = null,
+        public ?string $expiresAt = null,
+        public int $requestCount = 0,
+        public array $requestingIps = [],
+        public int $ipCount = 0,
+        public ?string $token = null,
+        public array $extra = [],
+    ) {
+    }
+
+    /** @param array<string, mixed> $data */
+    public static function fromArray(array $data): static
+    {
+        $scopes = [];
+        foreach ($data['scopes'] ?? [] as $scope) {
+            if (is_string($scope)) {
+                $scopes[] = $scope;
+            }
+        }
+
+        $requestingIps = [];
+        foreach ($data['requestingIps'] ?? [] as $entry) {
+            if (is_array($entry)) {
+                $requestingIps[] = [
+                    'ip' => (string) ($entry['ip'] ?? ''),
+                    'firstSeenAt' => (string) ($entry['firstSeenAt'] ?? ''),
+                    'lastSeenAt' => (string) ($entry['lastSeenAt'] ?? ''),
+                    'hitCount' => (int) ($entry['hitCount'] ?? 0),
+                ];
+            }
+        }
+
+        return new self(
+            id: self::string($data, 'id'),
+            name: self::string($data, 'name'),
+            tokenPrefix: self::string($data, 'tokenPrefix'),
+            scopes: $scopes,
+            createdAt: self::string($data, 'createdAt'),
+            lastUsedAt: self::nullableString($data, 'lastUsedAt'),
+            expiresAt: self::nullableString($data, 'expiresAt'),
+            requestCount: self::int($data, 'requestCount'),
+            requestingIps: $requestingIps,
+            ipCount: self::int($data, 'ipCount'),
+            token: self::nullableString($data, 'token'),
+            extra: self::extra($data, [
+                'id', 'name', 'tokenPrefix', 'scopes', 'createdAt',
+                'lastUsedAt', 'expiresAt', 'requestCount', 'requestingIps', 'ipCount', 'token',
+            ]),
+        );
+    }
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        $result = [
+            'id' => $this->id,
+            'name' => $this->name,
+            'tokenPrefix' => $this->tokenPrefix,
+            'scopes' => $this->scopes,
+            'createdAt' => $this->createdAt,
+            'requestCount' => $this->requestCount,
+            'requestingIps' => $this->requestingIps,
+            'ipCount' => $this->ipCount,
+        ];
+        if ($this->lastUsedAt !== null) {
+            $result['lastUsedAt'] = $this->lastUsedAt;
+        }
+        if ($this->expiresAt !== null) {
+            $result['expiresAt'] = $this->expiresAt;
+        }
+        if ($this->token !== null) {
+            $result['token'] = $this->token;
+        }
+
+        return array_merge($result, $this->extra);
+    }
+}
+
+readonly class McpCredentialsListResponse extends Model
+{
+    /** @param list<McpCredential> $mcpCredentials */
+    public function __construct(
+        public bool $success,
+        public array $mcpCredentials,
+        public ?int $total = null,
+        public ?int $maxMcpCredentials = null,
+    ) {
+    }
+
+    /** @param array<string, mixed> $data */
+    public static function fromArray(array $data): static
+    {
+        $credentials = [];
+        foreach ($data['mcpCredentials'] ?? [] as $item) {
+            if (is_array($item)) {
+                $credentials[] = McpCredential::fromArray($item);
+            }
+        }
+
+        return new self(
+            success: self::bool($data, 'success'),
+            mcpCredentials: $credentials,
+            total: self::nullableInt($data, 'total'),
+            maxMcpCredentials: self::nullableInt($data, 'maxMcpCredentials'),
+        );
+    }
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        $result = [
+            'success' => $this->success,
+            'mcpCredentials' => array_map(
+                static fn (McpCredential $credential): array => $credential->toArray(),
+                $this->mcpCredentials,
+            ),
+        ];
+        if ($this->total !== null) {
+            $result['total'] = $this->total;
+        }
+        if ($this->maxMcpCredentials !== null) {
+            $result['maxMcpCredentials'] = $this->maxMcpCredentials;
+        }
+
+        return $result;
+    }
+}
+
+readonly class CreateMcpCredentialResponse extends Model
+{
+    public function __construct(
+        public bool $success,
+        public McpCredential $mcpCredential,
+    ) {
+    }
+
+    /** @param array<string, mixed> $data */
+    public static function fromArray(array $data): static
+    {
+        return new self(
+            success: self::bool($data, 'success'),
+            mcpCredential: McpCredential::fromArray($data['mcpCredential'] ?? []),
+        );
+    }
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        return [
+            'success' => $this->success,
+            'mcpCredential' => $this->mcpCredential->toArray(),
+        ];
+    }
+}

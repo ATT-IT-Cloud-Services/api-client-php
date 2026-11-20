@@ -51,6 +51,28 @@ final class Support extends ResourceClient
         return KnowledgeBaseResponse::fromArray($this->requestGet('/knowledge-base', $query));
     }
 
+    /**
+     * Review prompts the customer should see on the dashboard right now
+     * (`GET /feedback/prompts`): `{ enabled, queue }`, newest object first.
+     * @return array<string, mixed>
+     */
+    public function review_prompts(): array
+    {
+        return parent::requestGet('/feedback/prompts');
+    }
+
+    /**
+     * Never ask for a review of this object again
+     * (`POST /feedback/prompts/dismiss`). Pass exactly one of
+     * `ticketId` / `serviceId`.
+     * @param array<string, mixed>|null $body
+     * @return array<string, mixed>
+     */
+    public function dismiss_review_prompt(?array $body = null): array
+    {
+        return parent::requestPost('/feedback/prompts/dismiss', $body);
+    }
+
     // <generated-openapi>
     /**
      * @generated GET /feedback
