@@ -258,26 +258,6 @@ final class PublicApi extends ResourceClient
     }
 
     /**
-     * @generated GET /public/setup/legal
-     * @param array<string, scalar|null>|null $query
-     * @return array<string, mixed>
-     */
-    public function setup_legal(?array $query = null): array
-    {
-        return parent::requestGet('/public/setup/legal', $query);
-    }
-
-    /**
-     * @generated PUT /public/setup/legal
-     * @param array<string, mixed>|null $body
-     * @return array<string, mixed>
-     */
-    public function replace_setup_legal(?array $body = null): array
-    {
-        return parent::requestPut('/public/setup/legal', $body);
-    }
-
-    /**
      * @generated GET /public/support-hours
      * @param array<string, scalar|null>|null $query
      * @return array<string, mixed>
